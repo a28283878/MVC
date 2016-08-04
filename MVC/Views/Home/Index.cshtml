@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@Html.ActionLink("Download", "Download")
+<button name="download" id="download">Download</button>
+@section Scripts {
+    <script>
+        $('#download').click(function () {
+            $.ajax({
+                url: '/Home/Download',
+                type: 'post',
+                success: function () {
+                    window.location = '@Url.Action("Download", "Home")';
+                }
+            });
+        });
+    </script>
+}
